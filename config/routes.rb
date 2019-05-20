@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :locations
   resources :bookings, only: [:new, :create, :destroy, :index]
 
+  get "dashboard", to: 'locations#dashboard'
+
 end

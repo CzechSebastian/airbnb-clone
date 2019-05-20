@@ -1,15 +1,22 @@
+
+<div class="container text-center">
 <h1>You are in index of locations</h1>
-
-<% @locations.each do |location|  %>
-<p>
-  <%= location.name %>
-  <%= location.address %>
-  <%= location.description %>
-  <%= location.price %>
-  <%= location.category %>
-</p>
+<div class="container text-center d-grid row row justify-content-center ">
+  <% @locations.each do |location| %>
+    <div class="card m-3" style="width: 18rem;">
+      <div class="card-body">
+         <h5 class="card-name"><%= link_to location.name, location_path(location)%></h5>
+         <p class="card-description"><%= location.description %></p>
+         <p class="card-address"><%= location.address %></p>
+         <p class="card-price"><%= location.price %></p>
+         <p class="card-price"><%= location.category %></p>
+       </div>
+    </div>
   <% end %>
+</div>
+    <div class="text-center">
+      <%= link_to "new location", new_location_path, class: "btn btn-primary"  %>
+    </div>
+</div>
 
-<%= link_to "new location", new_location_path, class: "btn btn-primary"  %>
 
-<%= link_to "new location", new_location_path, class: "btn btn-primary"  %>

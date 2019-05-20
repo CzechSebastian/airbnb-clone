@@ -1,7 +1,12 @@
 class LocationsController < ApplicationController
+    skip_before_action :authenticate_user!, only: :index
+
 
   def index
     @locations = Location.all
+  end
+
+  def dashboard
   end
 
   def new
@@ -10,7 +15,8 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
-    if @location.save
+    @location.user = current_user
+    if @location.save!
       redirect_to location_path(@location)
     else
       render 'new'
