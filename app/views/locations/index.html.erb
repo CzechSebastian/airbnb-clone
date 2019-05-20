@@ -1,0 +1,15 @@
+<h1>You are in index of locations</h1>
+
+<% @locations.each do |location|  %>
+<p>
+  <%= location.name %>
+  <%= location.address %>
+  <%= location.description %>
+  <%= location.price %>
+  <%= location.category %>
+</p>
+  <% end %>
+
+<%= link_to "new location", new_location_path, class: "btn btn-primary"  %>
+
+<%= link_to "new location", new_location_path, class: "btn btn-primary"  %>

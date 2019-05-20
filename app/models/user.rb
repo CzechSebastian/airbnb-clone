@@ -3,8 +3,8 @@ class User < ApplicationRecord
   has_many :locations, dependent: :destroy
   has_many :booked_locations, through: :bookings, source: :location
 
-  validates :f_name, presence: true
-  validates :l_name, presence: true
+  # validates :f_name, presence: true
+  # validates :l_name, presence: true
   validates :email, presence: true, uniqueness: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
