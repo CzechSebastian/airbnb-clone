@@ -5,6 +5,8 @@
   <%= f.input :description %>
   <%= f.input :price %>
   <%= f.input :category %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
   <%= f.submit "Edit location", class: "btn btn-primary" %>
   <%= link_to "Back to dashboard", dashboard_path, class:"btn btn-primary" %>
   <% end %>
