@@ -1,7 +1,11 @@
 
-<div class="container text-center">
+<div class="top-container text-center">
+  <h1 id="title">Make a search...</h1>
+  <%= render 'shared/searchbar' %>
+</div>
+<div class="container text-center middle">
 <h1>You are in index of locations</h1>
-<div class="container text-center d-grid row row justify-content-center ">
+<div class="container text-center d-grid row row justify-content-center">
   <% @locations.each do |location| %>
     <div class="card m-3" style="width: 18rem;">
       <div class="card-body">
@@ -13,10 +17,9 @@
        </div>
     </div>
   <% end %>
+      <%= link_to "new location", new_location_path, class: "btn btn-primary btn-lg"  %>
 </div>
-    <div class="text-center">
-      <%= link_to "new location", new_location_path, class: "btn btn-primary"  %>
-    </div>
+
 </div>
 
 
