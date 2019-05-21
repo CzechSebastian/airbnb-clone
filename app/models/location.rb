@@ -7,4 +7,8 @@ class Location < ApplicationRecord
   validates :price, presence: true
   validates :category, presence: true
   validates :description, presence: true
+
+  def self.search(search)
+    where("name ILIKE ?", "%#{search}%")
+  end
 end
