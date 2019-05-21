@@ -6,7 +6,7 @@ class LocationPolicy < ApplicationPolicy
   end
 
   def dashboard?
-  	true
+    true
   end
 
   def new?
@@ -31,5 +31,5 @@ class LocationPolicy < ApplicationPolicy
 
   def destroy?
   	record.user == user
-  end	
+  end
 end
