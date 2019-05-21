@@ -1,16 +1,25 @@
-<h1>Location details</h1>
-
+<div class="container">
+<h1 class="text-center" >Location details</h1>
+<div class="container-show">
+<div class="information">
 <h3><%= @location.name %></h3>
 <p><%= @location.address %></p>
 <p><%= @location.description %></p>
 <p><%= @location.price %></p>
 <p><%= @location.category %></p>	
 
-
-<%= link_to "Back to main page", locations_path %>
-<%= link_to "Edit location", edit_location_path %>
-<%= link_to "Delete", @location, method: :delete %>
-
 <%= render 'bookings/new' %> 
 
-
+<p><%= @location.price %> $CAD</p>
+<p><%= @location.category %></p>
+</div>
+<div class="map">
+  <img src="https://www.xda-developers.com/files/2018/03/google-maps-logo.png" alt="">
+</div>
+</div>
+<div class="show-btn">
+<%= link_to "Back to main page", locations_path, class: "btn btn-primary btn-lg" %>
+<%= link_to "Edit location", edit_location_path, class: "btn btn-primary btn-lg" %>
+<button type="button" class="btn btn-danger btn-lg">❤</button>
+</div>
+</div>
