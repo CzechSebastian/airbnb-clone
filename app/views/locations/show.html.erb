@@ -7,6 +7,7 @@
 <p><%= @location.description %></p>
 <p><%= @location.price %> $CAD</p>
 <p><%= @location.category %></p>
+<p><%= cl_image_tag @location.photo, height: 300, width: 400, crop: :fill %></p>
 </div>
 <div class="map">
   <img src="https://www.xda-developers.com/files/2018/03/google-maps-logo.png" alt="">
@@ -18,3 +19,4 @@
 <button type="button" class="btn btn-danger btn-lg">❤</button>
 </div>
 </div>
+
