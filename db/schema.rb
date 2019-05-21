@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2019_05_20_173704) do
   create_table "bookings", force: :cascade do |t|
     t.date "date_in"
     t.date "date_out"
-    t.string "location"
     t.string "status"
     t.bigint "user_id"
     t.bigint "location_id"
