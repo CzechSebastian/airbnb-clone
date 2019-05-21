@@ -1,0 +1,11 @@
+<%= simple_form_for [@location] do |f| %>
+  <% if policy(@location).edit? %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :category %>
+  <%= f.submit "Edit location", class: "btn btn-primary" %>
+  <%= link_to "Back to main page", root_path, class:"btn btn-primary" %>
+  <% end %>
+<% end %>
