@@ -1,9 +1,10 @@
 class LocationsController < ApplicationController
     skip_before_action :authenticate_user!, only: :index
+    skip_after_action :verify_authorized, only: :dashboard
 
 
   def index
-    @locations = Location.all
+    @locations = policy_scope(Location)
   end
 
   def dashboard
@@ -11,11 +12,13 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
+    authorize @location
   end
 
   def create
     @location = Location.new(location_params)
     @location.user = current_user
+    authorize @location
     if @location.save!
       redirect_to location_path(@location)
     else
@@ -25,20 +28,26 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+    authorize @location
   end
 
   def edit
     @location = Location.find(params[:id])
+    authorize @location
   end
 
   def update
     @location = Location.find(params[:id])
     @location.update(location_params)
+    authorize @location
+    redirect_to location_path(@location)
   end
 
   def destroy
     @location = Location.find(params[:id])
     @location.destroy
+    authorize @location
+    redirect_to locations_path
   end
 
   private
