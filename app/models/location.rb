@@ -1,4 +1,5 @@
 class Location < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
 
   CATEGORY = ["landscape", "urban", "field", "beach", "plain"]
 
