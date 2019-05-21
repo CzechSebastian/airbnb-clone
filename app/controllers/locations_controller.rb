@@ -8,7 +8,10 @@ class LocationsController < ApplicationController
   end
 
   def dashboard
+    @locations = current_user.locations
+    # authorize @location
   end
+
 
   def new
     @location = Location.new
@@ -47,7 +50,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @location.destroy
     authorize @location
-    redirect_to locations_path
+    redirect_to dashboard_path
   end
 
   private
