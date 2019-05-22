@@ -4,9 +4,17 @@ class LocationsController < ApplicationController
 
   def index
     @locations = policy_scope(Location)
-    @locations = Location.all
+
+    if params[:search]
+      @locations = Location.search(params[:search]).order("created_at DESC")
+    else
+      @location = Location.all.order('created_at DESC')
+    end
+
     @locations = Location.where.not(latitude: nil, longitude: nil)
+
   end
+
 
   def dashboard
     @locations = current_user.locations
