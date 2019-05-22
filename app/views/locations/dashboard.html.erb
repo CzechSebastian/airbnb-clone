@@ -3,27 +3,26 @@
   <%= link_to "Add a new location", new_location_path, class: "btn btn-primary btn-lg new-location-btn m-3"  %>
   <div>
 
-<div class="container d-flex justify-content-around dash-menu">
-	<div>
-		<ul class="list-inline tabs-underlined">
-		  <li>
-		    <a href="#" class="tab-underlined active">Bookings</a>
-		  </li>
-		  <li>
-		    <a href="#" class="tab-underlined">Requests</a>
-		  </li>
-		  <li>
-		    <a href="#" class="tab-underlined">Favorites</a>
-		  </li>
-		  <li>
-		    <a href="#" class="tab-underlined">Messages</a>
-		  </li>
-		</ul>
-	</div>
+<div class="container d-flex justify-content-around">
+	<ul class="nav tabs-underlined" id="myTab" role="tablist">
+	  <li>
+	    <a class=" active tab-underlined" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Listings</a>
+	  </li>
+	  <li>
+	    <a class=" tab-underlined" id="booking-tab" data-toggle="tab" href="#booking" role="tab" aria-controls="booking" aria-selected="false">Bookings</a>
+	  </li>
+	  <li>
+	    <a class=" tab-underlined" id="favorites-tab" data-toggle="tab" href="#favorites" role="tab" aria-controls="favorites" aria-selected="false">Favorites</a>
+	  </li>
+	  <li>
+	    <a class=" tab-underlined" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
+	  </li>
+	</ul>
 </div>
-
-
-  <% @locations.each do |location| %>
+	<div class="tab-content" id="myTabContent">
+  	<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+			<div class="container">
+	 			  <% @locations.each do |location| %>
   <div class="card-owner">
     <img class="card-img-top" src= <%= location.photo %> >
   <div class="card-owner-infos">
@@ -47,8 +46,14 @@
     </div>
       </div>
     </div>
-  <% end %>
-
+  <% end %>	                
+	 			<%= link_to "Add a new location", new_location_path, class: "btn btn-primary btn-lg new-location-btn m-3"  %>
+			</div>
+  	</div>
+  <div class="tab-pane fade" id="booking" role="tabpanel" aria-labelledby="booking-tab">...</div>
+  <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">...</div>
+  <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">...</div>
+</div>
 
 
 

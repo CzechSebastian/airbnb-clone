@@ -5,6 +5,7 @@ class LocationsController < ApplicationController
 
   def index
     @locations = policy_scope(Location)
+    @locations = Location.all
   end
 
   def dashboard
