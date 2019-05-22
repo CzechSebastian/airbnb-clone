@@ -14,7 +14,10 @@ class LocationsController < ApplicationController
 
 
   def dashboard
+    @locations = current_user.locations
+    # authorize @location
   end
+
 
   def new
     @location = Location.new
@@ -34,6 +37,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+    @booking = Booking.new
     authorize @location
   end
 
@@ -53,12 +57,16 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @location.destroy
     authorize @location
-    redirect_to locations_path
+    redirect_to dashboard_path
   end
 
   private
 
   def location_params
-    params.require(:location).permit(:name, :address, :category, :description, :price)
+    params.require(:location).permit(:name, :address, :category, :description, :price, :photo)
   end
+
+  def article_params
+  params.require(:article).permit(:title, :body, :photo)
+end
 end
