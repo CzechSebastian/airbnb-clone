@@ -6,10 +6,10 @@
       <div class="card-owner-infos">
         <div>
           <% location.bookings.where.not(status: nil).each do |booking| %>
-          <h2><%= booking.id %></h2> 
-          <p><%= location.name %></p> 
+          <h2><%= booking.id %></h2>
+          <p><%= location.name %></p>
           <p><%= booking.status %></p>
-        </div> 
+        </div>
         <%= simple_form_for booking do |f| %>
           <%= f.input :status, collection: Booking::STATUS, prompt: booking.status %>
           <%= f.button :submit, value: "send confirmation" %>
@@ -20,14 +20,16 @@
         <% end %>
       <% end %>
     <% end %>
-      </div> 
-    </div>  	                
-
+      </div>
+    </div>
+    <div>
   <h2>Last requests on locations</h2>
     <% @bookings.each do |booking| %>
         <%= booking.id %>
         <%= booking.location.name %>
         <%= booking.status %>
-    <% end %> 
+    <% end %>
+    </div>
+
 </div>
 
