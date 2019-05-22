@@ -9,4 +9,11 @@ class BookingPolicy < ApplicationPolicy
   	true
   end
 
+  def update?
+  	true
+  end
+
+  def destroy?
+  	true
+  end
 end
