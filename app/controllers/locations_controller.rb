@@ -14,10 +14,12 @@ class LocationsController < ApplicationController
     @locations = Location.where.not(latitude: nil, longitude: nil)
 
   end
+end
 
 
   def dashboard
     @locations = current_user.locations
+    @bookings = current_user.bookings
     # authorize @location
   end
 
@@ -78,6 +80,5 @@ class LocationsController < ApplicationController
 
   def article_params
   params.require(:article).permit(:title, :body, :photo)
-end
 end
 
