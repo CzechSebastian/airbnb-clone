@@ -6,6 +6,10 @@
   margin-bottom: 4%;
 }
 
+h2 > a {
+  color: black;
+}
+
 .card-owner > img {
   height: 200px;
   width: 300px;
@@ -13,18 +17,35 @@
 }
 
 .card-owner h2 {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-owner p {
-  font-size: 12px;
+  font-size: 16px;
   opacity: .7;
   margin: 0;
 }
 
+.booking-date {
+  font-style: bold;
+}
 
 .card-owner .card-owner-infos {
-  padding: 16px;
+  display: flex;
+  justify-content: space-around;
+  padding: 2% 0 0 0;
+  width: 100%;
+  border-right: solid 1px lightgrey;
+  padding-right: 58px;
+}
+
+.fa-lightbulb {
+  color: #80FC28;
+}
+
+.btn-danger {
+  font-style: normal;
+  margin-top: 10%;
 }
