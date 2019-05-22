@@ -1,6 +1,8 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "show";
+@import "new";
+
 
 body {
   margin-top: 48px;
@@ -38,5 +40,9 @@ body {
 
 .new-location-btn {
   margin-top: 32px;
+}
+
+.dash-menu {
+  padding: 32px;
 }
 
