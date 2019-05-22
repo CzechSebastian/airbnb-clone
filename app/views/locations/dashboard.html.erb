@@ -1,6 +1,5 @@
 <div class="container text-center">
-<h1>Owner dashboard</h1>
-  <%= link_to "Add a new location", new_location_path, class: "btn btn-primary btn-lg new-location-btn m-3"  %>
+
   <div>
 
 <div class="container d-flex justify-content-around">
@@ -22,37 +21,35 @@
 	<div class="tab-content" id="myTabContent">
   	<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 			<div class="container">
-	 			  <% @locations.each do |location| %>
-  <div class="card-owner">
-    <img class="card-img-top" src= <%= location.photo %> >
-  <div class="card-owner-infos">
-    <div>
-      <h2><%= link_to location.name, location_path(location) %></h2>
-      <p><%= location.description %></p>
-      <p><%= location.price %> $CAD / day</p>
-      <p><strong><%= location.category %></strong></p>
-    <div>
-    </div>
-    </div>
-    <div class="price-book">
-    <p class="booking-date">Todo booking date</p>
-    <p class="card-owner-pricing">total price to do $CAD</p>
-    <p class="fas fa-lightbulb"></p>
-    <p>Status Pending</p>
-    <%= link_to location_path(location.id), method: :delete, data: {
-      confirm: 'Are you sure?'} do %>
-      <i class="btn btn-danger"">Cancel Booking</i>
-      <% end %>
-    </div>
-      </div>
-    </div>
-  <% end %>	                
+	 		  <% @locations.each do |location| %>
+          <div class="card-owner">
+            <img class="card-img-top" src= <%= location.photo %> >
+            <div class="card-owner-infos">
+            <div>
+              <h2><%= link_to location.name, location_path(location) %></h2>
+              <p><%= location.description %></p>
+              <p><%= location.price %> $CAD / day</p>
+              <p><strong><%= location.category %></strong></p>
+            </div>
+            <div class="price-book">
+              <p class="booking-date">Todo booking date</p>
+              <p class="card-owner-pricing">total price to do $CAD</p>
+              <p class="fas fa-lightbulb"></p>
+              <p>Status Pending</p>
+              <%= link_to location_path(location.id), method: :delete, data: {
+              confirm: 'Are you sure?'} do %>
+              <i class="btn btn-danger">Cancel Booking</i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% end %>	                
 	 			<%= link_to "Add a new location", new_location_path, class: "btn btn-primary btn-lg new-location-btn m-3"  %>
 			</div>
   	</div>
-  <div class="tab-pane fade" id="booking" role="tabpanel" aria-labelledby="booking-tab">...</div>
-  <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">...</div>
-  <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">...</div>
+    <div class="tab-pane fade" id="booking" role="tabpanel" aria-labelledby="booking-tab">...</div>
+    <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">...</div>
+    <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">...</div>
 </div>
 
 
