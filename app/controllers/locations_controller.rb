@@ -14,7 +14,7 @@ class LocationsController < ApplicationController
     @locations = Location.where.not(latitude: nil, longitude: nil)
 
   end
-end
+
 
 
   def dashboard
@@ -79,6 +79,6 @@ end
   end
 
   def article_params
-  params.require(:article).permit(:title, :body, :photo)
+    params.require(:article).permit(:title, :body, :photo)
+  end
 end
-
