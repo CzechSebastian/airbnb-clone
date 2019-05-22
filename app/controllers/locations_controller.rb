@@ -1,19 +1,11 @@
 class LocationsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
-  skip_after_action :verify_authorized, only: :dashboard
+    skip_before_action :authenticate_user!, only: :index
+    skip_after_action :verify_authorized, only: :dashboard
+
 
   def index
     @locations = policy_scope(Location)
     @locations = Location.all
-    @locations = Location.where.not(latitude: nil, longitude: nil)
-
-    @markers = @locations.map do |location|
-      {
-        lat: location.latitude,
-        lng: location.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { location: location })
-      }
-    end
   end
 
   def dashboard
@@ -73,4 +65,3 @@ class LocationsController < ApplicationController
   params.require(:article).permit(:title, :body, :photo)
 end
 end
-

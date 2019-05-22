@@ -1,26 +1,26 @@
+
 <div class="top-container text-center">
   <h1 id="title">Make a search...</h1>
   <%= render 'shared/searchbar' %>
 </div>
-
 <div class="container text-center middle">
-  <h1>You are in index of locations</h1>
-  <div class="container text-center d-grid row row justify-content-center">
-    <% @locations.each do |location| %>
-      <div class="card-trip">
-        <img class="card-img-top" src= <%= location.photo %> >
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= link_to location.name, location_path(location) %></h2>
-            <p><%= location.description %></p>
-            <p><strong><%= location.category %></strong></p>
-          </div>
-          <h2 class="card-trip-pricing"><%= location.price %> $CAD</h2>
-        </div>
-      </div>
-    <% end %>
+<h1>You are in index of locations</h1>
+<div class="container text-center d-grid row row justify-content-center">
+  <% @locations.each do |location| %>
+<div class="card-trip">
+  <img class="card-img-top" src= <%= location.photo %> >
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= link_to location.name, location_path(location) %></h2>
+      <p><%= location.description %></p>
+      <p><strong><%= location.category %></strong></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= location.price %> $CAD</h2>
   </div>
 </div>
+  <% end %>
+</div>
+  <%= link_to "new location", new_location_path, class: "btn btn-primary btn-lg new-location-btn"  %>
 
-
+</div>
 

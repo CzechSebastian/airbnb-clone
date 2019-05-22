@@ -1,7 +1,7 @@
 <p>Booking form</p>
 
 <%= simple_form_for [@location, @booking] do |f| %>
-  <%= f.input :date_in, as: :date, html15: true %>
-  <%= f.input :date_out, as: :date, html15: true  %>
+  <%= f.input :date_in %>
+  <%= f.input :date_out %>
   <%= f.submit "Set up your availability", class: "btn btn-primary" %>
 <% end %>
