@@ -14,6 +14,7 @@ class LocationsController < ApplicationController
     @locations = Location.where.not(latitude: nil, longitude: nil)
 
   end
+end
 
 
   def dashboard
