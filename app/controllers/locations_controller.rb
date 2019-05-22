@@ -20,6 +20,7 @@ class LocationsController < ApplicationController
         infoWindow: render_to_string(partial: "infowindow", locals: { location: location })
       }
   end
+end
 
 
   def dashboard
