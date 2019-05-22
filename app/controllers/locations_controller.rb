@@ -6,14 +6,6 @@ class LocationsController < ApplicationController
     @locations = policy_scope(Location)
     @locations = Location.all
     @locations = Location.where.not(latitude: nil, longitude: nil)
-
-    @markers = @locations.map do |location|
-      {
-        lat: location.latitude,
-        lng: location.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { location: location })
-      }
-    end
   end
 
   def dashboard
@@ -42,6 +34,13 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @booking = Booking.new
     authorize @location
+
+    @markers = [{
+        lat: @location.latitude,
+        lng: @location.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { location: @location })
+      }]
+
   end
 
   def edit
