@@ -1,43 +1,43 @@
-// Specific CSS for your home-page
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.searchbar {
+.home-input {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
-.flex-form {
+.home-form {
   display: flex;
-  border-radius: 5px;
-}
+  flex-direction: row;
+  border: none;
+  padding: 10px 5px;
+  width: 50%;
+  background-color: white;
+  border-radius:6px;
 
-input[type=search] {
-  flex-basis: 500px;
-}
+  #search-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 
-.flex-form > * {
-  border: 0;
-  padding: 10px;
-  line-height: 30px;
-  font-size: 20px;
-  border-radius: 0;
-  outline: 0;
-  background: #fff;
-}
+  input[type=text] {
+    background-color: transparent;
+    padding: 0 5px;
+    flex-grow: 2;
+    border: none;
+    &::placeholder {
+      font-size: 16px;
+    }
+  }
 
-.round-left {
-  border-radius: 6px 0 0 6px;
-}
+  input:focus {
+    outline: none;
+  }
 
-.flex-form input[type=submit] {
-  background: #1ABE82;
-  color: white;
-  border-radius: 0 6px 6px 0;
-}
-label {
-  margin-bottom:0
+  input[type=submit] {
+    border: none;
+    background: none;
+    color: #FC7C85;
+    font-size: 18px;
+    font-weight: 700;
+  }
 }
