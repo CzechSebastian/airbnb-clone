@@ -1,15 +1,24 @@
 class LocationsController < ApplicationController
-    skip_before_action :authenticate_user!, only: :index
-    skip_after_action :verify_authorized, only: :dashboard
-
+  skip_before_action :authenticate_user!, only: :index
+  skip_after_action :verify_authorized, only: :dashboard
 
   def index
     @locations = policy_scope(Location)
+
     if params[:search]
       @locations = Location.search(params[:search]).order("created_at DESC")
     else
       @location = Location.all.order('created_at DESC')
     end
+
+    @locations = Location.where.not(latitude: nil, longitude: nil)
+
+    @markers = @locations.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { location: location })
+      }
   end
 
 
@@ -70,3 +79,4 @@ class LocationsController < ApplicationController
   params.require(:article).permit(:title, :body, :photo)
 end
 end
+

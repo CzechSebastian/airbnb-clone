@@ -1,5 +1,7 @@
 class Location < ApplicationRecord
   mount_uploader :photo, PhotoUploader
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   CATEGORY = ["landscape", "urban", "field", "beach", "plain"]
 
@@ -13,7 +15,9 @@ class Location < ApplicationRecord
   validates :description, presence: true
 
 
+
   def self.search(search)
     where("name ILIKE ?", "%#{search}%")
   end
+
 end

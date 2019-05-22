@@ -1,6 +1,8 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "show";
+@import "new";
+
 
 body {
   margin-top: 52px;
@@ -47,5 +49,9 @@ body {
 .d-grid {
   display: flex;
   justify-content: space-around !important;
+}
+
+.dash-menu {
+  padding: 32px;
 }
 
