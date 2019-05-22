@@ -19,6 +19,7 @@ end
 
   def dashboard
     @locations = current_user.locations
+    @bookings = current_user.bookings
     # authorize @location
   end
 
