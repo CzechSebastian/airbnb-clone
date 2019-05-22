@@ -1,24 +1,18 @@
-<div class="searchbar">
-
+<!-- <div class="searchbar">
   <form class="flex-form">
-
-    <input  class="round-left" type="search" placeholder="Where do you wanna go?" />
-    <label for="from">From</label>
-    <input type="date" name="from" />
-
-    <label for="to">To</label>
-    <input type="date" name="to" />
-
-    <select name="category" id="category">
-      <option class="round-right" value="" disabled selected>Category</option>
-      <option value="1">Home</option>
-      <option value="2">Landscape</option>
-      <option value="3">Flat</option>
-      <option value="4">Field</option>
-      <option value="5">Ranch</option>
-    </select>
-
+    <input class="round-left" type="search" name="location" fromclass="round-left"  placeholder="What kind of location?" />
     <input type="submit" value="Search" />
-
   </form>
 </div>
+
+
+ -->
+
+  <div class="home-input">
+    <div class="home-form">
+      <%= form_tag(locations_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search for a cocktail" %>
+      <%= submit_tag "Search" %>
+      <% end %>
+    </div>
+  </div>
