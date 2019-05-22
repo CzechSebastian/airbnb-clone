@@ -14,6 +14,8 @@ Location.create!(name: "Great field", address: "32 Saint-Sauveur Street, Saint-R
 Location.create!(name: "Nice little house", address: "5849 Sherbrooke West Street, Montreal", description: "Nice little house with lovely garden", price: 450, category: "urban", user: current_user)
 Location.create!(name: "Nice big appartment", address: "4818 Saint-Andre Street", description: "Nice big scary appartment", price: 678, category: "urban", user: current_user)
 Location.create!(name: "Empty field near Mont-Tremblant", address: "243 Dorken Street", description: "Empty field well located", price: 586, category: "plain", user: current_user)
-Location.create!(name: "Beautiful Field", address: "480 137th Avenue", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."", price: 900, category: "landscape", user: User.first)
+Location.create!(name: "Beautiful Field", address: "480 137th Avenue", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...", price: 900, category: "landscape", user: current_user)
+Location.create!(name: "Beautiful Field", address: "480 137th Avenue", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...", price: 900, category: "landscape", user: current_user)
+Location.create!(name: "Beautiful Field", address: "480 137th Avenue", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...", price: 900, category: "landscape", user: current_user)
 puts "You're all set!"
 

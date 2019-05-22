@@ -1,33 +1,34 @@
 <div class="container">
   <h2>Requests on my listing</h2>
-	  <% @locations.each do |location| %>
+  <% @locations.each do |location| %>
     <div class="card-owner">
-      <img class="card-img-top" src= <%= location.photo %> >
-      <div class="card-owner-infos">
-        <div>
-          <% location.bookings.where.not(status: nil).each do |booking| %>
-          <h2><%= booking.id %></h2> 
-          <p><%= location.name %></p> 
+      <% location.bookings.where.not(status: nil).each do |booking| %>
+        <img class="card-img-top" src= <%= location.photo %> >
+        <div class="card-owner-infos">
+          <p><%= location.name %></p>
           <p><%= booking.status %></p>
-        </div> 
-        <%= simple_form_for booking do |f| %>
-          <%= f.input :status, collection: Booking::STATUS, prompt: booking.status %>
-          <%= f.button :submit, value: "send confirmation" %>
-        <% end %>
-        <%= link_to booking_path(booking.id), method: :delete, data: {
-          confirm: 'Are you sure?'} do %>
-          <i class="btn btn-danger">cancel Request</i>
-        <% end %>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, collection: Booking::STATUS, prompt: booking.status %>
+            <%= f.button :submit, value: "send confirmation" %>
+          <% end %>
+          <%= link_to booking_path(booking.id), method: :delete, data: {
+            confirm: 'Are you sure?'} do %>
+            <i class="btn btn-danger">cancel Request</i>
+          <% end %>
+        </div>
       <% end %>
-    <% end %>
-      </div> 
-    </div>  	                
+    </div>
+  <% end %>
 
   <h2>Last requests on locations</h2>
-    <% @bookings.each do |booking| %>
-        <%= booking.id %>
+  <% @bookings.each do |booking| %>
+    <div class="card-owner">
+      <img class="card-img-top" src= <%= booking.location.photo %> >
+      <div class="card-owner-infos">
         <%= booking.location.name %>
-        <%= booking.status %>
-    <% end %> 
+        <p> Status: <%= booking.status %></p>
+      </div>
+    </div>
+  <% end %>
 </div>
 
