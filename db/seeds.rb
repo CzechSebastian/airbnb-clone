@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Ready go!"
-Location.create!(name: "Ferme a Tigui", address: "5333 cascouille", description: "dans un champ de mais", price: 900000, category: "agricole", user: User.first)
+Location.create!(name: "Beautiful Field", address: "480 137th Avenue", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."", price: 900, category: "landscape", user: User.first)
 puts "You're all set!"

@@ -4,17 +4,18 @@ class LocationsController < ApplicationController
 
   def index
     @locations = policy_scope(Location)
-    @locations = Location.all
+
+    if params[:search]
+      @locations = Location.search(params[:search]).order("created_at DESC")
+    else
+      @location = Location.all.order('created_at DESC')
+    end
+
     @locations = Location.where.not(latitude: nil, longitude: nil)
 
-    @markers = @locations.map do |location|
-      {
-        lat: location.latitude,
-        lng: location.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { location: location })
-      }
-    end
   end
+end
+
 
   def dashboard
     @locations = current_user.locations
@@ -43,6 +44,13 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @booking = Booking.new
     authorize @location
+
+    @markers = [{
+        lat: @location.latitude,
+        lng: @location.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { location: @location })
+      }]
+
   end
 
   def edit
