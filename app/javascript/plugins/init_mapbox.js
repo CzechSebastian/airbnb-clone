@@ -19,37 +19,59 @@ const addMarkersToMap = (map, markers) => {
 
 };
 
-
-const initMapbox = () => {
+const initSearchMap = () => {
   const mapBtn = document.getElementById("map-btn");
 
-  mapBtn.addEventListener("click", (event) => {
-    const mapElement = document.getElementById('map');
-    map.classList.toggle("map-size")
+  if (mapBtn != null) {
+    mapBtn.addEventListener("click", (event) => {
+      const mapElement = document.getElementById('map');
+      map.classList.toggle("map-size")
 
-    if (mapBtn.innerHTML === "Hide Map") {
-      mapBtn.innerHTML = "Show Map";
-    } else {
-      mapBtn.innerHTML = "Hide Map";
-    }
+      if (mapBtn.innerHTML === "Hide Map") {
+        mapBtn.innerHTML = "Show Map";
+      } else {
+        mapBtn.innerHTML = "Hide Map";
+      }
 
-    if (mapElement) { // only build a map if there's a div#map to inject into
-      mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-      const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v10'
-      });
+      if (mapElement) { // only build a map if there's a div#map to inject into
+        mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+        const map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v10'
+        });
 
-      const markers = JSON.parse(mapElement.dataset.markers);
+        const markers = JSON.parse(mapElement.dataset.markers);
 
-      addMarkersToMap(map, markers);
+        addMarkersToMap(map, markers);
 
-      fitMapToMarkers(map, markers);
-      map.resize();
-    }
-  });
+        fitMapToMarkers(map, markers);
+        map.resize();
+      }
+    });
+  };
+
+}
+
+const initShowMap = () => { 
+  const mapShowElement = document.getElementById('show-map');
+
+  if (mapShowElement) { // only build a map if there's a div#map to inject into
+    mapboxgl.accessToken = mapShowElement.dataset.mapboxApiKey;
+    const map = new mapboxgl.Map({
+      container: 'show-map',
+      style: 'mapbox://styles/mapbox/streets-v10'
+    });
+
+    const markers = JSON.parse(mapShowElement.dataset.markers);
+    addMarkersToMap(map, markers);
+    fitMapToMarkers(map, markers);
+    map.resize();
+  }
+}
+
+const initMapbox = () => {
+  initSearchMap()
+  initShowMap()
 };
-
-
 
 export { initMapbox };
