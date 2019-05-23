@@ -4,25 +4,21 @@ class LocationsController < ApplicationController
 
   def index
     @locations = policy_scope(Location)
-
-    if params[:search]
-      @locations = Location.search(params[:search]).order("created_at DESC")
-    else
-      @location = Location.all.order('created_at DESC')
-    end
-
+    @locations = Location.all
     @locations = Location.where.not(latitude: nil, longitude: nil)
 
+    if params[:search].present?
+      @locations = Location.search_by_name_and_description_and_category(params[:search]).order('created_at DESC')
+    else
+      @locations = Location.all
+    end
   end
-
-
 
   def dashboard
     @locations = current_user.locations
     @bookings = current_user.bookings
     # authorize @location
   end
-
 
   def new
     @location = Location.new

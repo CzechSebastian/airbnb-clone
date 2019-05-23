@@ -14,10 +14,14 @@ class Location < ApplicationRecord
   validates :category, presence: true, inclusion: { in: CATEGORY }
   validates :description, presence: true
 
-
-
   def self.search(search)
     where("name ILIKE ?", "%#{search}%")
   end
 
+  include PgSearch
+  pg_search_scope :search_by_name_and_description_and_category,
+  against: [:name, :description, :category],
+     using: {
+      tsearch: { prefix: true }
+    }
 end
