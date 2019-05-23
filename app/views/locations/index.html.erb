@@ -7,25 +7,41 @@
   <%= render 'shared/searchbar' %>
 </div>
 
-<div class="container text-center middle">
-  <h1>You are in index of locations</h1>
-    <%= link_to "Add a new location", new_location_path, class: "btn btn-primary btn-lg new-location-btn m-3"%>
-    <div class="container text-center d-grid row row justify-content-center">
-      <% @locations.each do |location| %>
-        <div class="card-trip">
-          <img class="card-img-top" src= <%= location.photo %> >
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= link_to location.name, location_path(location) %></h2>
-              <p><%= location.description %></p>
-              <p><strong><%= location.category %></strong></p>
-            </div>
-            <h2 class="card-trip-pricing"><%= location.price %> $CAD</h2>
+<div class="d-flex justify-content-end">
+  <div class="btn btn-warning" href="#" role="button" id="map-btn">Show Map</div>
+</div>
+
+<div class="d-flex">
+  <div class="container text-center d-grid flex-wrap">
+    <% @locations.each do |location| %>
+      <div class="card-trip">
+        <img class="card-img-top" src= <%= location.photo %> >
+        <div class="card-trip-infos">
+          <div class="info">
+            <h2><%= link_to location.name, location_path(location) %></h2>
+            <p><%= location.description %></p>
+            <p><strong><%= location.category %></strong></p>
           </div>
+          <h2 class="card-trip-pricing"><%= location.price %> $CAD</h2>
         </div>
+      </div>
       <% end %>
     </div>
+
+  <div class="map"
+      id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
+
+
+   
+
+
+
+
+
 
 
 

@@ -18,24 +18,38 @@ const addMarkersToMap = (map, markers) => {
 
 
 };
+
+
 const initMapbox = () => {
-  const mapElement = document.getElementById('map');
+  const mapBtn = document.getElementById("map-btn");
 
-  if (mapElement) { // only build a map if there's a div#map to inject into
-    mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-    const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
-    });
+  mapBtn.addEventListener("click", (event) => {
+    const mapElement = document.getElementById('map');
+    map.classList.toggle("map-size")
 
-    const markers = JSON.parse(mapElement.dataset.markers);
+    if (mapBtn.innerHTML === "Hide Map") {
+      mapBtn.innerHTML = "Show Map";
+    } else {
+      mapBtn.innerHTML = "Hide Map";
+    }
 
-    addMarkersToMap(map, markers);
+    if (mapElement) { // only build a map if there's a div#map to inject into
+      mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v10'
+      });
 
+      const markers = JSON.parse(mapElement.dataset.markers);
 
-    fitMapToMarkers(map, markers);
-  }
+      addMarkersToMap(map, markers);
+
+      fitMapToMarkers(map, markers);
+      map.resize();
+    }
+  });
 };
+
 
 
 export { initMapbox };
