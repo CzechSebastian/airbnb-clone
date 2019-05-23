@@ -8,7 +8,7 @@ class LocationsController < ApplicationController
     @locations = Location.where.not(latitude: nil, longitude: nil)
 
     if params[:search].present?
-      @locations = Location.search_by_name_and_description_and_category(params[:search]).order('created_at DESC')
+      @locations = Location.search_by_name_and_description_and_category_and_address(params[:search]).order('created_at DESC')
     else
       @locations = Location.all
     end
@@ -53,7 +53,6 @@ class LocationsController < ApplicationController
         lng: @location.longitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { location: @location })
       }]
-
   end
 
   def edit
