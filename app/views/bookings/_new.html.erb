@@ -1,7 +1,9 @@
-<p>Booking form</p>
+<p><strong>Choose your dates:</strong></p>
 
 <%= simple_form_for [@location, @booking] do |f| %>
   <%= f.input :date_in, as: :date, html15: true %>
   <%= f.input :date_out, as: :date, html15: true  %>
-  <%= f.submit "Set up your availability", class: "btn btn-primary" %>
+  <div class="book-button">
+    <%= f.submit "Book now!", class: "btn btn-primary" %>
+  </div>
 <% end %>

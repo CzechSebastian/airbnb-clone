@@ -19,8 +19,8 @@ class Location < ApplicationRecord
   end
 
   include PgSearch
-  pg_search_scope :search_by_name_and_description_and_category,
-  against: [:name, :description, :category],
+  pg_search_scope :search_by_name_and_description_and_category_and_address,
+  against: [:name, :description, :category, :address],
      using: {
       tsearch: { prefix: true }
     }

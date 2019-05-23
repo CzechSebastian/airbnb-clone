@@ -1,30 +1,30 @@
-<div class="container">
-<h1 class="text-center" >Location details</h1>
-<div class="container-show">
-<div class="information">
-<h3><%= @location.name %></h3>
-<p><%= @location.address %></p>
-<p><%= @location.description %></p>
-<p><%= @location.price %></p>
-<p><%= @location.category %></p>
+<div class="container mp-4">
+    <h1 class="text-center title-show" ><%= @location.name %>'s details</h1>
+    <div class="container-show">
+      <div class="information">
+        <h3><%= @location.name %></h3>
+        <p><strong>Address:</strong> <%= @location.address %></p>
+        <p><strong>Description:</strong> <%= @location.description %></p>
+        <p> <strong>Category:</strong> <%= @location.category %></p>
+        <%= render 'bookings/new' %><br>
+        <p> <strong>Total price (per day):</strong> <%= @location.price %>0$CAD</p>
+      </div>
+      <div>
+        <img class="card-img-top mb-3 mr-3" src= <%= @location.photo %> >
+      </div>
+    </div>
+      <div class="map"
+        id="map"
+        style="width: 100%;
+        height: 500px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    <div class="show-btn">
+      <%= link_to "Edit location", edit_location_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to "Back dashboard", dashboard_path, class: "btn btn-secondary btn-lg" %>
 
-<%= render 'bookings/new' %>
-
-<p><%= @location.price %> $CAD</p>
-<p><%= @location.category %></p>
-</div>
-<div class="map"
-    id="map"
-    style="width: 700px;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-</div>
-<div class="show-btn">
-<%= link_to "Back dashboard", dashboard_path, class: "btn btn-primary btn-lg" %>
-<%= link_to "Edit location", edit_location_path, class: "btn btn-primary btn-lg" %>
-<!-- <button type="button" class="btn btn-danger btn-lg">❤</button> -->
-</div>
+      <!-- <button type="button" class="btn btn-danger btn-lg">❤</button> -->
+    </div>
 </div>
 

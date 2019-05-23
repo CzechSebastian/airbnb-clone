@@ -1,5 +1,6 @@
 .information {
   width: 400px;
+  height: 100%;
 }
 
 .btn-primary, .btn-danger {
@@ -22,6 +23,8 @@
   margin: auto;
   margin-top: 5%;
   justify-content: space-between;
+}
 
-
+.title-show {
+  padding-top: 30px;
 }
