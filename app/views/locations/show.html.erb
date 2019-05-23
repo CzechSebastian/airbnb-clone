@@ -7,10 +7,10 @@
 <p><%= @location.description %></p>
 <p><%= @location.price %></p>
 <p><%= @location.category %></p>
+<h4><%= @location.price %> $CAD</h4>
 
 <%= render 'bookings/new' %>
 
-<p><%= @location.price %> $CAD</p>
 <p><%= @location.category %></p>
 </div>
 <div class="map"
@@ -22,8 +22,8 @@
 </div>
 </div>
 <div class="show-btn">
-<%= link_to "Back dashboard", dashboard_path, class: "btn btn-primary btn-lg" %>
 <%= link_to "Edit location", edit_location_path, class: "btn btn-primary btn-lg" %>
+<%= link_to "Back dashboard", dashboard_path, class: "btn btn-secondary btn-lg" %>
 <!-- <button type="button" class="btn btn-danger btn-lg">❤</button> -->
 </div>
 </div>
