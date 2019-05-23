@@ -1,16 +1,20 @@
 <div class="container mp-4">
     <h1 class="text-center title-show" ><%= @location.name %>'s details</h1>
     <div class="container-show">
+      <div>
+        <img class="card-img-top mb-3 mr-3" src= <%= @location.photo %> >
+      </div>
       <div class="information">
+        <div class="Infos" >
         <h3><%= @location.name %></h3>
         <p><strong>Address:</strong> <%= @location.address %></p>
         <p><strong>Description:</strong> <%= @location.description %></p>
         <p> <strong>Category:</strong> <%= @location.category %></p>
-        <%= render 'bookings/new' %><br>
         <p> <strong>Total price (per day):</strong> <%= @location.price %>0$CAD</p>
-      </div>
-      <div>
-        <img class="card-img-top-show mb-3 mr-3" src= <%= @location.photo %> >
+        </div>
+        <div class="date">
+        <%= render 'bookings/new' %><br>
+        </div>
       </div>
     </div>
       <div class="map"
