@@ -16,11 +16,11 @@
           <p>Status Pending</p>
           <%= link_to location_path(location.id), method: :delete, data: {
           confirm: 'Are you sure?'} do %>
-          <i class="btn btn-danger">Cancel Booking</i>
+          <i class="btn btn-danger">Delete listing</i>
           <% end %>
         </div>
       </div>
     </div>
-    <% end %>	                
+    <% end %>
 			<%= link_to "Add a new location", new_location_path, class: "btn btn-primary btn-lg new-location-btn m-3"  %>
 	</div>

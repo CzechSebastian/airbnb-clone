@@ -11,8 +11,8 @@
   <%= f.select :category, Location::CATEGORY, prompt: "Choose a category" %>
   <%= f.input :photo, multiple: true %>
   <%= f.input :photo_cache, as: :hidden %>
-  <%= f.submit "Add the location", class: "btn btn-primary" %>
-  <%= link_to "Back to dashboard", dashboard_path, class:"btn btn-primary" %>
+  <%= f.submit "Add the location", class: "btn btn-primary btn-lg" %>
+  <%= link_to "Back to dashboard", dashboard_path, class:"btn btn-secondary btn-lg" %>
 <% end %>
 </div>
 
