@@ -12,6 +12,13 @@ class LocationsController < ApplicationController
     else
       @locations = Location.all
     end
+
+    @markers = @locations.map do |location| {
+      lat: location.latitude,
+      lng: location.longitude,
+      infoWindow: render_to_string(partial: "infowindow", locals: { location: location })
+    }
+    end
   end
 
   def dashboard
