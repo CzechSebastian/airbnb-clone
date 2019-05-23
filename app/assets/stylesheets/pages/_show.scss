@@ -1,5 +1,4 @@
 .information {
-  width: 400px;
   height: 100%;
 }
 
@@ -10,13 +9,23 @@
 }
 
 .container-show {
-  display: flex;
+  //display: flex;
   width: 100%;
   margin: auto;
   margin-top: 5%;
-  justify-content: space-between;
+
 }
 
 .title-show {
   padding-top: 30px;
+}
+
+.information {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 32px;
+}
+
+.bookform {
+  display: flex;
 }

@@ -1,8 +1,14 @@
-<p><strong>Choose your dates:</strong></p>
+<p class="text-center" ><strong>Choose your dates:</strong></p>
 
 <%= simple_form_for [@location, @booking] do |f| %>
-  <%= f.input :date_in, as: :date, html15: true %>
-  <%= f.input :date_out, as: :date, html15: true  %>
+  <div class="bookform">
+    <div class="datein">
+      <%= f.input :date_in, {html5: true} %>
+    </div>
+    <div class="dateout">
+      <%= f.input :date_out, {html5: true} %>
+    </div>
+  </div>
   <div class="book-button">
     <%= f.submit "Book now!", class: "btn btn-primary" %>
   </div>
