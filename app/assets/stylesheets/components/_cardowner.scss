@@ -49,3 +49,16 @@ h2 > a {
   font-style: normal;
   margin-top: 10%;
 }
+
+.card-owner .card-owner-infos-booking {
+  display: flex;
+  justify-content: space-around;
+  padding: 2% 0 0 0;
+  width: 100%;
+  border-right: solid 1px lightgrey;
+  padding-right: 58px;
+}
+
+.card-name {
+  margin-right: 310px;
+}

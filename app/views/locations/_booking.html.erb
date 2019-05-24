@@ -31,9 +31,16 @@
   <% @bookings.each do |booking| %>
     <div class="card-owner">
       <img class="card-img-top" src= <%= booking.location.photo %> >
-      <div class="card-owner-infos">
+      <div class="card-owner-infos-booking">
+        <div class="card-name">
         <%= booking.location.name %>
+            <p><strong>From:</strong> <%= booking.date_in %></p>
+            <p><strong>To:</strong> <%= booking.date_out %></p>
+            <p><strong>Total price:</strong> <%= ((booking.date_out - booking.date_in).to_i)*booking.location.price %>0$CAD</p>
+          </div>
+          <div>
         <p> Status: <%= booking.status %></p>
+      </div>
       </div>
     </div>
     <% end %>
