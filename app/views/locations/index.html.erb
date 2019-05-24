@@ -16,11 +16,11 @@
     <% @locations.each do |location| %>
       <div class="card-trip">
           <div>
-            <%= simple_form_for [location, @favorite] do |f| %>
+            <%= simple_form_for [location, @favorite], remote: true do |f| %>
               <div class="container-flag">
-                <button class="flag"><i class="far fa-flag"></i></button>
-                  <% end %>
+                <button data-location-id="<%= location.id %>" class="flag"><i class="far fa-flag"></i></button>
               </div>
+            <% end %>
           </div>
         <img class="card-img-top" src= <%= location.photo %> >
         <div class="card-trip-infos">
@@ -29,7 +29,7 @@
             <p><%= location.description %></p>
             <p><strong><%= location.category %></strong></p>
           </div>
-          <h2 class="card-trip-pricing"><%= location.price %> $CAD</h2>
+          <h2 class="card-trip-pricing"><%= location.price.to_i %> $CAD</h2>
         </div>
       </div>
       <% end %>

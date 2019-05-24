@@ -1,0 +1,8 @@
+
+function addFavorite() {
+  const flag = document.querySelector("[data-location-id='<%= @location.id %>']");
+	flag.classList.add("flag-blue");
+	flag.classList.remove("flag");
+}
+
+addFavorite()
