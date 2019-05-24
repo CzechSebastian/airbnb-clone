@@ -4,7 +4,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width:30%;
   margin-top: 32px;
-  height: 29%;
+  height: 320px;
 }
 
 .card-trip > img {
@@ -39,3 +39,6 @@
   text-align: left;
 }
 
+.container {
+  justify-content: space-between;
+}
