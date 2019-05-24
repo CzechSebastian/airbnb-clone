@@ -6,6 +6,7 @@ class LocationsController < ApplicationController
     @locations = policy_scope(Location)
     @locations = Location.all
     @locations = Location.where.not(latitude: nil, longitude: nil)
+    @favorite = Favorite.new
 
     if params[:search].present?
       @locations = Location.search_by_name_and_description_and_category_and_address(params[:search]).order('created_at DESC')

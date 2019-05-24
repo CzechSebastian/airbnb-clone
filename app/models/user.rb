@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :locations, dependent: :destroy
   has_many :booked_locations, through: :bookings, source: :location
+  has_many :favorites, dependent: :destroy
 
   # validates :f_name, presence: true
   # validates :l_name, presence: true
