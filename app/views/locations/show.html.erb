@@ -6,20 +6,20 @@
         <img class="card-img-top mb-3 mr-3" src= <%= @location.photo %> >
       </div>
       <div class="information">
-        <div class="Infos" >
-        <h3><%= @location.name %></h3>
-        <p><strong>Address:</strong> <%= @location.address %></p>
-        <p><strong>Description:</strong> <%= @location.description %></p>
-        <p> <strong>Category:</strong> <%= @location.category %></p>
-        <p> <strong>Total price (per day):</strong> <%= @location.price %>0$CAD</p>
-        </div>
+          <div class="Infos" >
+          <h3><%= @location.name %></h3>
+          <p><strong>Address:</strong> <%= @location.address %></p>
+          <p><strong>Description:</strong> <%= @location.description %></p>
+          <p> <strong>Category:</strong> <%= @location.category %></p>
+          <p> <strong>Total price (per day):</strong> <%= @location.price %>0$CAD</p>
+          </div>
         <div class="date">
         <%= render 'bookings/new' %><br>
         </div>
       </div>
     </div>
       <div class="map"
-        id="map"
+        id="show-map"
         style="width: 100%;
         height: 500px;"
         data-markers="<%= @markers.to_json %>"
