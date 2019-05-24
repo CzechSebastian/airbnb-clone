@@ -1,0 +1,24 @@
+form = document.getElementById('edit_booking_<%=@booking.id %>');
+function removeForm() {
+  console.log(form)
+  form.innerHTML = '';
+}
+
+function showImage() {
+  <% if @booking.status == "accepted"%>
+  form.insertAdjacentHTML("beforeend", '<i class="far fa-check-circle text-success fa-4x"></i>');
+  // show accepted image
+  <% elsif @booking.status == "declined" %>
+    form.insertAdjacentHTML("beforeend", '<i class="far fa-check-circle text-danger fa-4x"></i>');
+  // show declied image
+  <% else %>
+      form.insertAdjacentHTML("beforeend", '<i class="far fa-check-circle text-warning fa-4x"></i>');
+
+  // show pending image
+  <% end %>
+
+
+}
+
+removeForm();
+showImage();
