@@ -14,7 +14,7 @@
             <div id="new-booking-status">
               <p><%= booking.status %></p>
             </div>
-          <%= simple_form_for booking do |f| %>
+          <%= simple_form_for booking, remote:true  do |f| %>
             <%= f.input :status, collection: Booking::STATUS, prompt: booking.status %>
             <%= f.button :submit, value: "send confirmation" %>
           <% end %>
