@@ -6,18 +6,16 @@
         <div>
           <h2><%= link_to location.name, location_path(location) %></h2>
           <p><%= location.description %></p>
-          <p><%= location.price %> $CAD / day</p>
+          <p><%= location.price %> 0$CAD / day</p>
           <p><strong><%= location.category %></strong></p>
         </div>
         <div class="price-book">
-          <p class="booking-date">Todo booking date</p>
-          <p class="card-owner-pricing">total price to do $CAD</p>
+          <p class="booking-date"></p>
+          <p class="card-owner-pricing"></p>
           <p class="fas fa-lightbulb"></p>
           <p>Status Pending</p>
-          <%= link_to location_path(location.id), method: :delete, data: {
-          confirm: 'Are you sure?'} do %>
-            <i class="btn btn-danger delete-link">Delete listing</i>
-          <% end %>
+          <button class="btn btn-danger delete-btn" data-listing-id="<%= location.id%>">Delete listing</button>
+          <%= link_to "", location_path(location.id), class: 'delete-link hidden ', method: :delete, data: {listing_id: location.id} %>
         </div>
       </div>
     </div>
