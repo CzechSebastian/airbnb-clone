@@ -6,16 +6,15 @@
 
 body {
   margin-top: 52px;
-
-
 }
 
-#title {
+.logo-title > h1, .subtitle {
   padding: 48px 0 32px 0;
   color: white;
   font-weight: bolder;
   font-size: 4em;
 }
+
 //parallax effect BG
 .top-container {
   background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2540&q=80');

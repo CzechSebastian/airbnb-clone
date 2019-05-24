@@ -9,3 +9,14 @@ initMapbox();
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
 initAutocomplete();
+
+import { loadDynamicBannerText } from '../plugins/init_typedjs';
+
+loadDynamicBannerText();
+
+
+export { initSweetalert } from '../plugins/init_sweetalert';
+
+initSweetalert();
+
+

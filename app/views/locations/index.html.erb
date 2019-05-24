@@ -3,10 +3,12 @@
   <%= image_tag "logo-title.svg", alt: "Logo", width: 200, id:"fa-film" %>
   <h1 id="title">Movie Scout</h1>
   </div>
-  <h1 id="title">Looking for the best location...</h1>
+  <h1 class="subtitle" >Looking for <span id="title-typed-text"></span></h1>
   <%= render 'shared/searchbar' %>
 </div>
-
+<p>
+  <span id="banner-typed-text"></span>
+</p>
 <div class="d-flex justify-content-end">
   <div class="btn btn-warning" href="#" role="button" id="map-btn">Show Map</div>
 </div>
@@ -36,7 +38,7 @@
 </div>
 
 
-   
+
 
 
 
