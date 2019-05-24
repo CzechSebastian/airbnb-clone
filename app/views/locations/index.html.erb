@@ -15,6 +15,13 @@
   <div class="container text-center d-grid flex-wrap">
     <% @locations.each do |location| %>
       <div class="card-trip">
+          <div>
+            <%= simple_form_for [location, @favorite] do |f| %>
+              <div class="container-flag">
+                <button class="flag"><i class="far fa-flag"></i></button>
+                  <% end %>
+              </div>
+          </div>
         <img class="card-img-top" src= <%= location.photo %> >
         <div class="card-trip-infos">
           <div class="info">
@@ -23,16 +30,6 @@
             <p><strong><%= location.category %></strong></p>
           </div>
           <h2 class="card-trip-pricing"><%= location.price %> $CAD</h2>
-        </div>
-        <div>
-          <!-- <h2><%# link_to "favorite", favorites_path(location_id: location.id), method: :post %></h2> -->
-
-          <%= simple_form_for [location, @favorite] do |f| %>
-            <div class="book-button">
-              <%= f.submit "like", class: "btn btn-primary" %>
-            </div>
-          <% end %>
-
         </div>
       </div>
       <% end %>
