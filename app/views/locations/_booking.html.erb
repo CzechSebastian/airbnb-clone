@@ -5,22 +5,29 @@
       <% location.bookings.where.not(status: nil).each do |booking| %>
         <img class="card-img-top" src= <%= location.photo %> >
         <div class="card-owner-infos">
-          <p><%= location.name %></p>
-          <p><%= booking.status %></p>
+          <div>
+            <p><%= location.name %></p>
+            <p><strong>From:</strong> <%= booking.date_in %></p>
+            <p><strong>To:</strong> <%= booking.date_out %></p>
+            <p><strong>Total price:</strong> <%= ((booking.date_out - booking.date_in).to_i)*location.price %>0$CAD</p>
+          </div>
+            <div id="new-booking-status">
+              <p><%= booking.status %></p>
+            </div>
           <%= simple_form_for booking do |f| %>
             <%= f.input :status, collection: Booking::STATUS, prompt: booking.status %>
             <%= f.button :submit, value: "send confirmation" %>
           <% end %>
           <%= link_to booking_path(booking.id), method: :delete, data: {
             confirm: 'Are you sure?'} do %>
-            <i class="btn btn-danger">cancel Request</i>
+            <i class="btn btn-danger">Cancel Request</i>
           <% end %>
         </div>
       <% end %>
     </div>
   <% end %>
 
-  <h2>Last requests on locations</h2>
+  <h2>My bookings</h2>
   <% @bookings.each do |booking| %>
     <div class="card-owner">
       <img class="card-img-top" src= <%= booking.location.photo %> >
