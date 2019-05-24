@@ -14,10 +14,8 @@
           <p class="card-owner-pricing">total price to do $CAD</p>
           <p class="fas fa-lightbulb"></p>
           <p>Status Pending</p>
-          <%= link_to location_path(location.id), method: :delete, data: {
-          confirm: 'Are you sure?'} do %>
-            <i class="btn btn-danger delete-link">Delete listing</i>
-          <% end %>
+          <button class="btn btn-danger delete-btn" data-listing-id="<%= location.id%>">Delete listing</button>
+          <%= link_to "", location_path(location.id), class: 'delete-link hidden ', method: :delete, data: {listing_id: location.id} %>
         </div>
       </div>
     </div>
