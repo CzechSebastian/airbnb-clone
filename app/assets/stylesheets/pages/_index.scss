@@ -8,11 +8,18 @@ body {
   margin-top: 52px;
 }
 
-.logo-title > h1, .subtitle {
+.logo-title > h1, {
   padding: 48px 0 32px 0;
   color: white;
   font-weight: bolder;
   font-size: 4em;
+}
+
+.subtitle {
+  padding: 48px 0 32px 0;
+  color: white;
+  font-weight: bolder;
+  font-size: 2em;
 }
 
 //parallax effect BG
