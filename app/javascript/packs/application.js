@@ -15,7 +15,7 @@ import { loadDynamicBannerText } from '../plugins/init_typedjs';
 loadDynamicBannerText();
 
 
-export { initSweetalert } from '../plugins/init_sweetalert';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 initSweetalert();
 
