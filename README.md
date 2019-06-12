@@ -1,1 +1,5 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Movie scout helps filmmakers to find the best locations for shoot their movies.
+
+Rails app made in 5 days with 2 teammates.
+
+http://movie-scout.herokuapp.com/
